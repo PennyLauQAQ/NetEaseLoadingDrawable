@@ -129,11 +129,11 @@ public class CircleDrawable extends Drawable implements IAnimatable {
         Rect bound = getBounds();
         mRectF.set(bound.left + realPadding, bound.top + realPadding, bound.right - realPadding, bound.bottom - realPadding);
         int unit = 180 / mColors.length;
+        //rotate
+        float dtAngle = count == 0 ? 360 * scale : 360 * (1 - scale);
         for (int i = 0; i < mColors.length; i++) {
             mPaint.setColor(mColors[i]);
             mPaint.setStrokeWidth(realWidth);
-            //rotate
-            float dtAngle = count == 0 ? 360 * scale : 360 * (1 - scale);
             canvas.drawArc(mRectF, unit * 2 * i + dtAngle, unit, false, mPaint);
         }
     }
