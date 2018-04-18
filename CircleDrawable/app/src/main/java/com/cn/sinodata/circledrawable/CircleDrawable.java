@@ -73,7 +73,7 @@ public class CircleDrawable extends Drawable implements IAnimatable {
             public void onAnimationRepeat(Animator animation) {
                 super.onAnimationRepeat(animation);
                 //0 or 1
-                count = (++count) % 2;
+                count ^= 1;
                 if (BuildConfig.DEBUG) {
                     Log.e("TAG", "onAnimationRepeat");
                 }
